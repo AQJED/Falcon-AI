@@ -90,5 +90,5 @@ Training pipeline using Stable-Baselines3's PPO will be provided soon.
 
 **Adeeb Alqahtani**  
 Software Integration Engineer | AI + Simulation  
-📫 [www.linkedin.com/in/adalqahtani]
+📫 www.linkedin.com/in/adalqahtani
 
