@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Falcon AI</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p1TfIh6V+7Wn/dF1WqKz7AGGgKf6EM3mYb+2L1G9OOV3mWc8H5KQFvcN4l+6LJ1qv1pU5jv7uPNq9vT+XQvSBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Base styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; font-family: 'Poppins', sans-serif; color: #e0e0e0; background-color: #0f0f0f; line-height: 1.6; }
+
+    /* Fullscreen Header */
+    header { position: relative; width: 100%; height: 100vh; background: url('background.jpg') no-repeat center center/cover; display: flex; align-items: center; justify-content: center; }
+    header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,15,15,0.6); }
+    .header-content { position: relative; z-index: 1; padding: 2rem; width: 80%; max-width: 1000px; text-align: center; }
+    .header-content h1 { font-size: 3rem; font-weight: 600; color: #ffffff; }
+    .header-content p { font-size: 1.25rem; color: #cccccc; margin-top: 0.5rem; }
+
+    /* Main content container */
+    main { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
+    h2 { font-size: 2rem; margin-bottom: 1rem; font-weight: 600; color: #f0f0f0; }
+    p { margin-bottom: 1rem; font-size: 1rem; color: #d0d0d0; }
+    ul { margin-bottom: 1.5rem; padding-left: 1.25rem; }
+    ul li { margin-bottom: 0.5rem; }
+
+    /* Core Technologies Icons */
+    .tech-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; }
+    .tech-item { flex: 1 1 calc(33.333% - 2rem); text-align: center; }
+    .tech-item i { font-size: 3rem; margin-bottom: 0.5rem; color: #ffffff; }
+    .tech-item span { display: block; margin-top: 0.5rem; font-size: 1rem; color: #cccccc; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
+    th, td { padding: 0.75rem 1rem; border: 1px solid #2c2c2c; }
+    th { background-color: #1a1a1a; color: #ffffff; text-align: left; }
+    td { background-color: #141414; color: #cccccc; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content h1 { font-size: 2.5rem; }
+      .tech-item { flex: 1 1 100%; }
+      .header-content { width: 90%; padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="header-content">
+      <h1>Falcon AI</h1>
+      <p>Reinforcement Learning Simulator</p>
+      <p>Falcon AI is an ongoing reinforcement learning research project that I've been developing as a solo engineer, focused on training autonomous fighter jets to perform intelligent aerial combat maneuvers in a simulated 2D dogfight environment.</p>
+      <p>This project leverages the power of multi-agent reinforcement learning (MARL) to create realistic air-to-air engagements using Python-based tools — with a future goal of integrating into military simulation middleware (e.g., DIS/CIGI systems).</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Project Overview -->
+    <section id="overview">
+      <h2>Project Overview</h2>
+      <!-- Overview now in header -->
+    </section>
+
+    <!-- Agent Objectives -->
+    <section id="objectives">
+      <h2>Overview</h2>
+      <ul>
+        <li>Detect enemy positioning</li>
+        <li>Maneuver strategically</li>
+        <li>Engage in cannon-based dogfights</li>
+        <li>Learn evasion and attack behavior through self-play</li>
+      </ul>
+    </section>
+
+    <!-- Core Technologies -->
+    <section id="technologies">
+      <h2>Core Technologies</h2>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <i class="fab fa-pytorch"></i>
+          <span>PyTorch</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-project-diagram"></i>
+          <span>Transformer</span>
+        </div>
+        <div class="tech-item">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Component</th><th>Tool/Library</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Environment</td><td>PyFlyt + PettingZoo</td><td>Multi-agent 2D jet simulation</td></tr>
+          <tr><td>RL Framework</td><td>Stable-Baselines3</td><td>PPO-based agent training</td></tr>
+          <tr><td>Backend</td><td>PyTorch</td><td>Neural network and RL algorithm backend</td></tr>
+          <tr><td>Visualization</td><td>PyBullet (via PyFlyt)</td><td>Basic visual debugging and rendering</td></tr>
+          <tr><td>Model Export</td><td>TorchScript / ONNX (planned)</td><td>Future deployment into C++ simulation</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Agent Observations -->
+    <section id="observations">
+      <h2>Agent Observations</h2>
+      <ul>
+        <li>Own aircraft position, velocity, heading</li>
+        <li>Relative position and heading of enemy</li>
+        <li>Ammo status, health status</li>
+        <li>Proximity to combat zone boundaries</li>
+      </ul>
+    </section>
+
+    <!-- Action Space -->
+    <section id="action-space">
+      <h2>Action Space</h2>
+      <ul>
+        <li>Turn left / Turn right</li>
+        <li>Throttle up / Throttle down</li>
+        <li>Fire weapon (cannon-based)</li>
+        <li>Optional: Flare, dive, or climb (future features)</li>
+      </ul>
+    </section>
+
+    <!-- Reward Design -->
+    <section id="reward-design">
+      <h2>Reward Design</h2>
+      <table>
+        <thead>
+          <tr><th>Condition</th><th>Reward</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Hitting opponent</td><td>+100</td></tr>
+          <tr><td>Getting hit</td><td>-100</td></tr>
+          <tr><td>Staying engaged (near enemy)</li><li>+1</td></tr>
+          <tr><td>Going out of bounds</td><td>-10</td></tr>
+          <tr><td>Evasion success</td><td>+0.5</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Project Milestones -->
+    <section id="milestones">
+      <h2>Project Milestones</h2>
+      <ul>
+        <li>Phase 1: Environment setup with PyFlyt + PettingZoo</li>
+        <li>Phase 2: Define observations, actions, reward shaping</li>
+        <li>Phase 3: Train RL agent with PPO using Stable-Baselines3</li>
+        <li>Phase 4: Add human-pilot test mode</li>
+        <li>Phase 5: Export model and connect to DIS/CIGI middleware</li>
+      </ul>
+    </section>
+
+    <!-- Training -->
+    <section id="training">
+      <h2>Training the Agent</h2>
+      <p>Training pipeline using Stable-Baselines3's PPO will be provided soon.</p>
+    </section>
+  </main>
+
+</body>
+</html>
