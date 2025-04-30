@@ -3,171 +3,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Falcon AI</title>
-
-  <!-- Google Fonts -->
+  <title>AI-Guided Drone Interceptor System</title>
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p1TfIh6V+7Wn/dF1WqKz7AGGgKf6EM3mYb+2L1G9OOV3mWc8H5KQFvcN4l+6LJ1qv1pU5jv7uPNq9vT+XQvSBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <!-- MathJax for equations -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-    /* Base styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { height: 100%; font-family: 'Poppins', sans-serif; color: #e0e0e0; background-color: #0f0f0f; line-height: 1.6; }
-
-    /* Fullscreen Header */
-    header { position: relative; width: 100%; height: 100vh; background: url('background.jpg') no-repeat center center/cover; display: flex; align-items: center; justify-content: center; }
-    header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,15,15,0.6); }
-    .header-content { position: relative; z-index: 1; padding: 2rem; width: 80%; max-width: 1000px; text-align: center; }
-    .header-content h1 { font-size: 3rem; font-weight: 600; color: #ffffff; }
-    .header-content p { font-size: 1.25rem; color: #cccccc; margin-top: 0.5rem; }
-
-    /* Main content container */
-    main { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
-    h2 { font-size: 2rem; margin-bottom: 1rem; font-weight: 600; color: #f0f0f0; }
-    p { margin-bottom: 1rem; font-size: 1rem; color: #d0d0d0; }
-    ul { margin-bottom: 1.5rem; padding-left: 1.25rem; }
-    ul li { margin-bottom: 0.5rem; }
-
-    /* Core Technologies Icons */
-    .tech-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; }
-    .tech-item { flex: 1 1 calc(33.333% - 2rem); text-align: center; }
-    .tech-item i { font-size: 3rem; margin-bottom: 0.5rem; color: #ffffff; }
-    .tech-item span { display: block; margin-top: 0.5rem; font-size: 1rem; color: #cccccc; }
-
-    /* Tables */
-    table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
-    th, td { padding: 0.75rem 1rem; border: 1px solid #2c2c2c; }
-    th { background-color: #1a1a1a; color: #ffffff; text-align: left; }
-    td { background-color: #141414; color: #cccccc; }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .header-content h1 { font-size: 2.5rem; }
-      .tech-item { flex: 1 1 100%; }
-      .header-content { width: 90%; padding: 1.5rem; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #0f0f0f; color: #d0d0d0; line-height: 1.6; }
+    header { position: relative; width: 100%; height: 100vh; background: url('hero-background.jpg') no-repeat center center/cover; }
+    header::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); }
+    .header-content { position: relative; z-index: 1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; height:100%; padding: 0 1rem; }
+    header h1 { color: #f0f0f0; font-size: 3rem; margin-bottom: 1rem; }
+    header p { color: #e0e0e0; font-size: 1.125rem; max-width:800px; }
+    main { max-width:1000px; margin: auto; padding:4rem 1rem; }
+    h2 { color:#f0f0f0; font-size:2rem; margin-top:2rem; margin-bottom:1rem; }
+    h3 { color:#f0f0f0; font-size:1.5rem; margin-top:1.5rem; margin-bottom:0.75rem; }
+    p, li { color:#d0d0d0; margin-bottom:1rem; }
+    ul { padding-left:1.5rem; margin-bottom:1rem; }
+    table { width:100%; border-collapse: collapse; margin-bottom:2rem; }
+    table th, table td { border:1px solid #333; padding:0.75rem; }
+    table th { background:#1a1a1a; color:#fff; }
+    table td { background:#141414; color:#d0d0d0; }
+    @media(max-width:768px) {
+      header h1 { font-size:2rem; }
+      header p { font-size:1rem; }
+      main { padding:2rem 0.5rem; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Header Section -->
+  <!-- Hero Section -->
   <header>
     <div class="header-content">
-      <h1>Falcon AI</h1>
-      <p>Reinforcement Learning Simulator</p>
-      <p>Falcon AI is an ongoing reinforcement learning research project that I've been developing as a solo engineer, focused on training autonomous fighter jets to perform intelligent aerial combat maneuvers in a simulated 2D dogfight environment.</p>
-      <p>This project leverages the power of multi-agent reinforcement learning (MARL) to create realistic air-to-air engagements using Python-based tools — with a future goal of integrating into military simulation middleware (e.g., DIS/CIGI systems).</p>
+      <h1>AI-Guided Gun-Based Drone Interceptor System</h1>
+      <p>A reinforcement learning approach for cost-effective aerial defense in large-scale territories, leveraging existing UAV platforms modified with onboard machine guns to neutralize hostile drones.</p>
     </div>
   </header>
 
   <!-- Main Content -->
   <main>
-    <!-- Project Overview -->
-    <section id="overview">
-      <h2>Project Overview</h2>
-      <!-- Overview now in header -->
-    </section>
+    <h2>Abstract</h2>
+    <p>This document outlines the design, constraints, and operational logic of a reinforcement learning-based aerial drone interceptor. The system trains a UAV, representative of platforms like the Wing Loong II or CH-4B, to detect, pursue, and neutralize hostile UAVs (e.g., Shahed-136) using an onboard machine gun. This approach presents a cost-effective alternative to traditional missile systems in a geographically vast country. It combines well-established principles from aerodynamics, control theory, and weapon systems modeling with cutting-edge deep reinforcement learning.</p>
 
-    <!-- Agent Objectives -->
-    <section id="objectives">
-      <h2>Overview</h2>
-      <ul>
-        <li>Detect enemy positioning</li>
-        <li>Maneuver strategically</li>
-        <li>Engage in cannon-based dogfights</li>
-        <li>Learn evasion and attack behavior through self-play</li>
-      </ul>
-    </section>
+    <h2>1. Introduction</h2>
+    <p>Modern warfare and national defense strategies are increasingly challenged by the proliferation of low-cost, long-range drones. Traditional surface-to-air missile (SAM) systems—although effective—are economically unsustainable when used against cheap UAVs. Countries with large territorial spans and distributed infrastructure face unique defense scalability problems.</p>
+    <p>This project proposes a machine-learning-based interceptor drone system. It leverages existing UAVs (e.g., Wing Loong II) already in service, modified with gun pods to neutralize enemy drones in a cost-efficient, reusable, and autonomous manner.</p>
 
-    <!-- Core Technologies -->
-    <section id="technologies">
-      <h2>Core Technologies</h2>
-      <div class="tech-grid">
-        <div class="tech-item">
-          <i class="fab fa-pytorch"></i>
-          <span>PyTorch</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-project-diagram"></i>
-          <span>Transformer</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-github"></i>
-          <span>GitHub</span>
-        </div>
-      </div>
-      <table>
-        <thead>
-          <tr><th>Component</th><th>Tool/Library</th><th>Purpose</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Environment</td><td>PyFlyt + PettingZoo</td><td>Multi-agent 2D jet simulation</td></tr>
-          <tr><td>RL Framework</td><td>Stable-Baselines3</td><td>PPO-based agent training</td></tr>
-          <tr><td>Backend</td><td>PyTorch</td><td>Neural network and RL algorithm backend</td></tr>
-          <tr><td>Visualization</td><td>PyBullet (via PyFlyt)</td><td>Basic visual debugging and rendering</td></tr>
-          <tr><td>Model Export</td><td>TorchScript / ONNX (planned)</td><td>Future deployment into C++ simulation</td></tr>
-        </tbody>
-      </table>
-    </section>
+    <h2>2. System Objective</h2>
+    <p>The AI-controlled drone is trained to:</p>
+    <ul>
+      <li>Intercept hostile UAVs approaching critical airspace</li>
+      <li>Engage using a gun burst rather than expensive guided missiles</li>
+      <li>Maintain safe and efficient flight envelopes under dynamic terrain</li>
+      <li>Survive the encounter and continue to the next target</li>
+    </ul>
 
-    <!-- Agent Observations -->
-    <section id="observations">
-      <h2>Agent Observations</h2>
-      <ul>
-        <li>Own aircraft position, velocity, heading</li>
-        <li>Relative position and heading of enemy</li>
-        <li>Ammo status, health status</li>
-        <li>Proximity to combat zone boundaries</li>
-      </ul>
-    </section>
+    <h2>3. Platform Selection Rationale</h2>
+    <ul>
+      <li><strong>Availability</strong>: Already deployed and operated in military inventories</li>
+      <li><strong>Payload</strong>: Sufficient capacity (~400 kg) for FN HMP400 (.50 cal) gun pods and fire control systems</li>
+      <li><strong>Speed and Range</strong>: 300–370 km/h cruise speeds, suitable for drone pursuit over wide territorial sectors</li>
+      <li><strong>Operational Ceiling</strong>: Up to 9,000 m, well above hostile drone altitude</li>
+    </ul>
 
-    <!-- Action Space -->
-    <section id="action-space">
-      <h2>Action Space</h2>
-      <ul>
-        <li>Turn left / Turn right</li>
-        <li>Throttle up / Throttle down</li>
-        <li>Fire weapon (cannon-based)</li>
-        <li>Optional: Flare, dive, or climb (future features)</li>
-      </ul>
-    </section>
+    <h2>4. Flight Physics and Constraints</h2>
+    <p>All physical constraints are grounded in aerodynamic theory and UAV operational standards to ensure that trained behavior is realistic and transferable to hardware deployment.</p>
 
-    <!-- Reward Design -->
-    <section id="reward-design">
-      <h2>Reward Design</h2>
-      <table>
-        <thead>
-          <tr><th>Condition</th><th>Reward</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Hitting opponent</td><td>+100</td></tr>
-          <tr><td>Getting hit</td><td>-100</td></tr>
-          <tr><td>Staying engaged (near enemy)</li><li>+1</td></tr>
-          <tr><td>Going out of bounds</td><td>-10</td></tr>
-          <tr><td>Evasion success</td><td>+0.5</td></tr>
-        </tbody>
-      </table>
-    </section>
+    <h3>4.1 Speed Limits</h3>
+    <p><strong>Stall speed</strong>: &lt; 160 km/h — At this point, lift cannot support the drone’s weight, risking uncontrolled descent. The critical balance is given by:</p>
+    <p>\[ L = C_L \cdot \frac{1}{2} \rho V^2 S \]</p>
+    <p>where \( L \) is lift, \( V \) is velocity, \( \rho \) air density, \( C_L \) the lift coefficient, and \( S \) the wing area. Since \( L \propto V^2 \), any drop in speed greatly reduces lift.</p>
+    <p><strong>Max operational speed</strong>: ~330 km/h with payload — limited by structural fatigue and control surface performance under aerodynamic pressure. Excessive dynamic pressure:</p>
+    <p>\[ q = \frac{1}{2} \rho V^2 \]</p>
+    <p>contributes to possible frame damage or control loss.</p>
 
-    <!-- Project Milestones -->
-    <section id="milestones">
-      <h2>Project Milestones</h2>
-      <ul>
-        <li>Phase 1: Environment setup with PyFlyt + PettingZoo</li>
-        <li>Phase 2: Define observations, actions, reward shaping</li>
-        <li>Phase 3: Train RL agent with PPO using Stable-Baselines3</li>
-        <li>Phase 4: Add human-pilot test mode</li>
-        <li>Phase 5: Export model and connect to DIS/CIGI middleware</li>
-      </ul>
-    </section>
+    <h3>4.2 Angle of Attack (AoA)</h3>
+    <p>Sustained AoA &gt; 15° disrupts laminar airflow, causing flow separation and stall. This is explained by:</p>
+    <ul>
+      <li><em>Bernoulli’s principle</em>: Pressure differential across the wing creates lift</li>
+      <li><em>Flow separation</em> disrupts this balance</li>
+    </ul>
+    <p>High AoA increases the upper surface pressure, but beyond critical limits, airflow becomes turbulent and detaches, reducing net lift.</p>
 
-    <!-- Training -->
-    <section id="training">
-      <h2>Training the Agent</h2>
-      <p>Training pipeline using Stable-Baselines3's PPO will be provided soon.</p>
-    </section>
+    <h3>4.3 Roll and Turn Rate</h3>
+    <ul>
+      <li><strong>Max roll angle:</strong> ±60°</li>
+      <li><strong>Roll rate limit:</strong> 30°/s</li>
+      <li><strong>Yaw rate limit:</strong> ~30°/s ensures coordinated turns and prevents aerodynamic skid</li>
+    </ul>
+    <p>These limits reflect structural and aerodynamic stability considerations for long-wing UAVs.</p>
+
+    <h3>4.4 Climb/Descent and G-Load</h3>
+    <ul>
+      <li><strong>Climb rate:</strong> ≤ 10 m/s</li>
+      <li><strong>Descent rate:</strong> ≤ 15 m/s</li>
+      <li><strong>G-load cap:</strong> 3G, derived from centripetal acceleration \( G = \frac{v^2}{rg} \)</li>
+    </ul>
+
+    <h3>4.5 Altitude Safety (AGL Constraint)</h3>
+    <ul>
+      <li><strong>Minimum altitude:</strong> 300 m above ground</li>
+      <li>Training uses flat terrain assumption (AGL = z); deployment uses dynamic `get_agl()`</li>
+    </ul>
+
+    <h2>5. Engagement & Weapon System Modeling</h2>
+    <p>The drone uses a 12.7mm FN HMP400 gun pod with 400 rounds:</p>
+    <ul>
+      <li>Bullet velocity: ~900 m/s, travel delay 0.3–0.5s</li>
+      <li>Burst fire (2–3s) with 1.5° spread cone</li>
+      <li>Hit calculation based on geometry, distance, and bullet flight time</li>
+    </ul>
+
+    <h2>6. Reinforcement Learning Framework</h2>
+    <h3>6.1 Observation Space (18D)</h3>
+    <ul>
+      <li>3D position, speed, orientation</li>
+      <li>Relative vector to target</li>
+      <li>Altitude above ground</li>
+      <li>Fire cooldown & ammo state</li>
+    </ul>
+
+    <h3>6.2 Action Space</h3>
+    <ul>
+      <li>Continuous: pitch, yaw, throttle</li>
+      <li>Discrete: burst fire trigger</li>
+    </ul>
+
+    <h3>6.3 Reward Structure</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Condition</th>
+          <th>Reward</th>
+          <th>Rationale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Target detected</td><td>+5</td><td>Encourages awareness</td></tr>
+        <tr><td>Maintain visual lock</td><td>+0.5/step</td><td>Reinforces tracking behavior</td></tr>
+        <tr><td>Align yaw/pitch to target</td><td>+1</td><td>Precision-based aiming</td></tr>
+        <tr><td>Successful burst hit</td><td>+10</td><td>Marks firing accuracy</td></tr>
+        <tr><td>Target destroyed</td><td>+100</td><td>Primary mission success</td></tr>
+        <tr><td>Missed shot</td><td>-5</td><td>Penalizes ammo waste</td></tr>
+        <tr><td>Overspeed/stall</td><td>-2</td><td>Physics violation penalty</td></tr>
+        <tr><td>AGL &lt; 300m</td><td>-3</td><td>Safety infraction</td></tr>
+        <tr><td>Time pressure bonus</td><td>+5*(300 - t)</td><td>Promotes mission speed</td></tr>
+      </tbody>
+    </table>
+
+    <h2>7. Multi-Target Logic and Ground Coordination</h2>
+    <p>To simulate real-world air defense operations:</p>
+    <ul>
+      <li>After each kill, a new hostile UAV is spawned</li>
+      <li>Target management and sequencing are handled by a <strong>custom-built multi-target simulation module</strong>, developed specifically to interface with the reinforcement learning environment</li>
+      <li>In deployment, real-time target data can be fed from CIGI or external sensors</li>
+    </ul>
+
+    <h2>8. Cost-Effectiveness Justification</h2>
+    <p>Missile defense per kill: $1M–$3M (Patriot-class)<br>
+    Drone + gun pod + ops cost per mission: ~$150k–$250k</p>
+    <p>A single AI-controlled drone can intercept multiple targets per sortie, making this approach:</p>
+    <ul>
+      <li><strong>Logistically sustainable</strong></li>
+      <li><strong>Operationally scalable</strong></li>
+      <li><strong>Economically viable</strong></li>
+    </ul>
+
+    <h2>9. Conclusion</h2>
+    <p>This project transforms a proven aerial platform into an autonomous drone interceptor optimized for modern asymmetric threats. By grounding all constraints in validated aerodynamics and real-world UAV systems, the AI training process remains rooted in physics, not fiction. The result is a future-ready, cost-effective layer of air defense deployable over large national territories.</p>
+    <p>Further development will integrate terrain feeds, CIGI interfaces, and live radar input for real-world trials.</p>
+
+    <p style="margin-top:2rem;">Prepared for: Research & Simulation Team, UAV Interceptor Project<br>
+    Lead Engineer: Adeeb AlQahtani</p>
   </main>
-
 </body>
 </html>
